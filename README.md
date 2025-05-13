@@ -152,6 +152,6 @@ Abrir en navegador: `http://localhost:5173`
 
 ## 📝 Licencia
 
-© 2025 - Proyecto académico desarrollado para la Universidad Internacional de La Rioja (UNIR).
+© 2025 - Proyecto académico desarrollado para la Universidad Internacional de La Rioja (UNIR_).
 
 ```
