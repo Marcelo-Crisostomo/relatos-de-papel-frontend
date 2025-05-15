@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "El Principito",
+    "author": "Antoine de Saint-Exupéry",
+    "price": 9.99,
+    "image": "/assets/principito.jpg",
+    "description": "Un clásico que habla sobre el amor, la pérdida y el valor de lo esencial."
+  },
+  {
+    "id": 2,
+    "title": "Cien Años de Soledad",
+    "author": "Gabriel García Márquez",
+    "price": 14.99,
+    "image": "/assets/cien-anos.jpg",
+    "description": "Una obra maestra del realismo mágico y la historia de la familia Buendía."
+  }
+]

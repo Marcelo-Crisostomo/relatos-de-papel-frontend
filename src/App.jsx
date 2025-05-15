@@ -32,7 +32,6 @@ const App = () => {
           <Route path="/book/:id" element={<BookDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-        </Routes>
         <ToastContainer
           position="top-right"
           autoClose={9000}
