@@ -1,0 +1,109 @@
+.landing-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .landing-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .landing-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .landing-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  .redirect-message {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Loader: bouncing dots */
+  .loader {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 20px;
+  
+    &::before,
+    &::after,
+    & {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      background: #007bff;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+  
+    &::before {
+      left: -20px;
+      animation-delay: -0.32s;
+    }
+  
+    & {
+      left: 0;
+      animation-delay: -0.16s;
+    }
+  
+    &::after {
+      left: 20px;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 80%, 100% {
+      transform: scale(0);
+    } 
+    40% {
+      transform: scale(1);
+    }
+  }
+
+  .go-now-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: #0056b3;
+      transform: translateY(-1px);
+    }
+  
+    &:active {
+      background-color: #004080;
+      transform: translateY(1px);
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+    }
+  }
