@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BookCard from '../components/BookCard';
 import books from '../data/books.json'; 
 import useBooks from '../hooks/useBooks';
+import SearchBar from '../components/SearchBar';
+
 /*
 function Home() {
   return (
@@ -21,7 +23,11 @@ export default Home;*/
 
 function Home() {
   const { books, loading } = useBooks();
-
+  const [searchQuery, setSearchQuery] = useState('');
+  const filteredBooks = books.filter((book) =>
+  book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  book.author.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   if (loading) return <p className="text-center text-gray-500">Cargando libros...</p>;
 
   return (
@@ -30,12 +36,17 @@ function Home() {
         <h2 className="text-4xl font-extrabold text-blue-800 mb-10 text-center">
           Catálogo de libros
         </h2>
+        <SearchBar onSearch={setSearchQuery} />
 
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </div>
+        {filteredBooks.length > 0 ? (
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
+        {filteredBooks.map((book) => (
+          <BookCard key={book.id} book={book} />
+        ))}
+      </div>
+        ) : (
+          <p className="text-center text-gray-500 mt-10">No se encontraron libros.</p>
+        )}
       </div>
     </section>
   );

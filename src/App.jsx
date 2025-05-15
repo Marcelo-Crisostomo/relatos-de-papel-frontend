@@ -8,6 +8,7 @@ import Checkout from './pages/Checkout';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Cart from './pages/Cart';
+import MiniCart from './components/MiniCart';
 import '../src/styles/index.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
+        <MiniCart />
       </main>
       <Footer />
     </div>
