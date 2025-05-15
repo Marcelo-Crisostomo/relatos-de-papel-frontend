@@ -1,49 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import BookCard from '../components/BookCard';
-import Navbar from '../components/Navbar';
-import PageSizeSelector from '../components/PageSizeSelector';
-import Paginator from '../components/Paginator';
-import ScrollToTopButton from '../components/ScrollToTopButton';
-import '../styles/pages/_home.scss';
-import booksData from '../data/books';
-import { useSearch } from '../context/SearchContext';
+import books from '../data/books.json'; // Supuesto mock de libros
 
-const Home = () => {
-  const [books, setBooks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
-  const { searchTerm } = useSearch()
-  
-  useEffect(() => {
-    setBooks(booksData);
-  }, []);
-
-
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const visibleBooks = filteredBooks.slice(startIndex, startIndex + itemsPerPage);
-
+function Home() {
   return (
-    <div>
-      <div className="home-container">
-        <PageSizeSelector itemsPerPage={itemsPerPage} onChange={setItemsPerPage} />
-
-        <div className="book-grid">
-          {visibleBooks.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </div>
-
-        <Paginator currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+    <div className="p-8 bg-white min-h-screen">
+      <h2 className="text-3xl font-bold mb-6 text-blue-800">Catálogo de libros</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {books.map((book) => (
+          <BookCard key={book.id} book={book} />
+        ))}
       </div>
-      <ScrollToTopButton />
     </div>
-    
   );
-};
+}
 
 export default Home;
