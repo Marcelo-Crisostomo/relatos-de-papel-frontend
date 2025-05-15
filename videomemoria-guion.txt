@@ -1,0 +1,40 @@
+GUIÓN VIDEOMEMORIA - Relatos de Papel (Frontend)
+
+Duración máxima: 10 minutos
+
+1. Introducción (20 segundos)
+   - Nombre completo y módulo (Desarrollo Web Full Stack).
+   - Breve descripción del proyecto: “Relatos de Papel”.
+
+2. Componentes de React (1 min)
+   - Mencionar al menos 10 componentes funcionales.
+   - Explicar brevemente el uso de JSX.
+
+3. Hooks utilizados (1 min)
+   - useState, useEffect: dónde y cómo se utilizan.
+   - Hook personalizado: useCountdownRedirect (para redirección automática).
+
+4. Enrutamiento con React Router (1 min)
+   - Describir las rutas: "/", "/home", "/book/:id", "/checkout".
+   - Mostrar el archivo App.js.
+
+5. Vistas (2-3 min)
+   - Mostrar ejecución local del proyecto con `npm start`.
+   - Enseñar cada una de las vistas:
+     - Landing
+     - Página principal con libros filtrables
+     - Detalle del libro
+     - Checkout
+   - Mostrar el carrito (simulado).
+
+6. Estilos (1 min)
+   - Mostrar ejemplo de estructura BEM con SCSS.
+   - Comentar sobre diseño limpio y accesible.
+
+7. Despliegue en Vercel (1 min)
+   - Mostrar la URL pública del proyecto.
+   - Explicar cómo se desplegó a través de GitHub + Vercel.
+
+8. Cierre (30 seg)
+   - Agradecimiento
+   - Énfasis en lo aprendido y en la utilidad del proyecto.

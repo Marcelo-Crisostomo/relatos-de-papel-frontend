@@ -1,0 +1,25 @@
+.pagination-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 8px;
+  
+    label {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  
+    select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background-color: white;
+      cursor: pointer;
+  
+      &:hover {
+        border-color: #888;
+      }
+    }
+  }
