@@ -1,6 +1,6 @@
 import React from 'react';
 import BookCard from '../components/BookCard';
-import books from '../data/books.json'; // Supuesto mock de libros
+import books from '../data/books.json'; 
 
 function Home() {
   return (
