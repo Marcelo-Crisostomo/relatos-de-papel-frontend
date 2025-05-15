@@ -1,0 +1,45 @@
+https://relatos-de-papel.vercel.app (reemplaza con tu URL real tras desplegar)
+
+relatos-de-papel/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   ├── assets/ 
+│   ├── data/
+│   │   └── books.js                # Mock de libros (simulación de API)
+│   ├── hooks/
+│   │   ├── useCart.js 
+│   │   └── useCountdownRedirect.js
+│   ├── components/                 # Componentes reutilizables
+│   │   ├── BookCard.jsx
+│   │   ├── BookModal.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Paginator.jsx
+│   │   ├── PageSizeSelector.jsx 
+│   │   ├── SearchBar.jsx
+│   ├── context/
+│   │   └── CartProvider.jsx  
+│   ├── pages/
+│   │   ├── BookDetail.js
+│   │   ├── Checkout.js
+│   │   ├── Home.js
+│   │   └── Landing.js
+│   └── styles/
+│   │   ├── components/             # Estilos SCSS por componente
+│   │   │   ├── _bookcard.scss
+│   │   │   ├── _bookmodal.scss
+│   │   │   ├── _pageSizeSelector.scss
+│   │   │   ├── _paginator.scss
+│   │   │   └── _searchBar.scss
+│   │   ├── pages/                  # Estilos SCSS por página
+│   │   │   ├── _bookdetail.scss
+│   │   │   ├── _checkout.scss
+│   │   │   ├── _home.scss
+│   │   │   └── _landing.scss
+│       └── main.scss
+├── .gitignore
+├── package.json
+├── README.md
+└── project-url.txt
