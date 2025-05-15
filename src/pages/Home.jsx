@@ -1,7 +1,7 @@
 import React from 'react';
 import BookCard from '../components/BookCard';
 import books from '../data/books.json'; 
-
+/*
 function Home() {
   return (
     <div className="p-8 bg-white min-h-screen">
@@ -12,6 +12,25 @@ function Home() {
         ))}
       </div>
     </div>
+  );
+}
+
+export default Home;*/
+function Home() {
+  return (
+    <section className="bg-gradient-to-b from-white to-blue-50 min-h-screen py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-extrabold text-blue-800 mb-10 text-center">
+          Catálogo de libros
+        </h2>
+
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

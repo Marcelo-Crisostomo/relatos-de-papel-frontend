@@ -7,7 +7,8 @@ import BookDetail from './pages/BookDetail';
 import Checkout from './pages/Checkout';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './index.css';
+import Cart from './pages/Cart';
+import '../src/styles/index.css';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
           <Route path="/book/:id" element={<BookDetail />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
