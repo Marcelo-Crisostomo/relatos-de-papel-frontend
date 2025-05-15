@@ -1,30 +1,17 @@
 import React from 'react';
-import { Link,useNavigate } from 'react-router-dom';
-import { CheckCircle } from 'lucide-react';
-import useCountdownRedirect from '../hooks/useCountdownRedirect';
-import '../styles/pages/_checkout.scss';
+import CheckoutForm from '../components/CheckoutForm';
 
+function Checkout() {
+  const handleSubmit = (formData) => {
+    alert('Compra realizada con éxito. Gracias ' + formData.name + '!');
+  };
 
-const Checkout = () => {
-  const navigate = useNavigate();
-  const countdown = useCountdownRedirect(15, '/home');
-  
   return (
-    <div className="checkout-wrapper">
-      <div className="checkout-card">
-        <CheckCircle size={64} color="#2ecc71" />
-        <h2>¡Pedido realizado con éxito!</h2>
-        <p>Gracias por tu compra. Recibirás un correo con los detalles.</p>
-        <p>Serás redirigido al inicio en <strong>{countdown}</strong> segundos...</p>
-
-        <button className="btn-back-home" onClick={() => navigate('/home')}>
-          Volver al inicio
-        </button>
-      </div>
+    <div className="p-8 bg-white max-w-2xl mx-auto">
+      <h2 className="text-3xl font-bold text-blue-800 mb-6">Finalizar compra</h2>
+      <CheckoutForm onSubmit={handleSubmit} />
     </div>
   );
-};
-
+}
 
 export default Checkout;
-
