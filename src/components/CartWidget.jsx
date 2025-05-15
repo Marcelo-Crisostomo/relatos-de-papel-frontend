@@ -1,15 +1,17 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react'; 
 
 function CartWidget() {
-  const { cartItems, toggleCart } = useCart();
+  const { cartItems } = useCart(); // Ya no necesitas toggleCart
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const navigate = useNavigate();
+
   const handleClick = () => {
-  navigate('/cart'); 
-};
+    navigate('/cart'); 
+  };
+
   return (
     <button
       onClick={handleClick}

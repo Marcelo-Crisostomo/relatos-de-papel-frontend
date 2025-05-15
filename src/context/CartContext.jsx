@@ -1,12 +1,18 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem('cartItems');
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // ✅ Agregar un ítem al carrito
-  const addToCart = (book) => {
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+const addToCart = (book) => {
     setCartItems((prevItems) => {
       const exists = prevItems.find((item) => item.id === book.id);
       if (exists) {
@@ -21,12 +27,12 @@ export function CartProvider({ children }) {
     });
   };
 
-  // ✅ Eliminar un ítem específico del carrito
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
+ const removeFromCart = (id) => {
+  setCartItems((prevItems) =>
+    prevItems.filter((item) => Number(item.id) !== Number(id))
+  );
+};
 
-  // ✅ Actualizar la cantidad de un ítem
   const updateQuantity = (id, quantity) => {
     if (quantity < 1) return;
     setCartItems((prevItems) =>
@@ -36,18 +42,16 @@ export function CartProvider({ children }) {
     );
   };
 
-  // ✅ Vaciar carrito completo
   const clearCart = () => setCartItems([]);
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
-        setCartItems,
         addToCart,
         removeFromCart,
         updateQuantity,
-        clearCart
+        clearCart,
       }}
     >
       {children}
@@ -55,7 +59,6 @@ export function CartProvider({ children }) {
   );
 }
 
-// ✅ Hook personalizado para usar el carrito
 export function useCart() {
   return useContext(CartContext);
 }

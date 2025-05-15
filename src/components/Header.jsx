@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from '../components/CartWidget';
-import CartPanel from '../context/CartPanel';
+//import CartPanel from '../context/CartPanel';
 /*
 function Header() {
   return (
@@ -28,11 +28,10 @@ function Header() {
 
         <nav className="flex items-center space-x-6 text-sm md:text-base font-medium">
           <Link to="/home" className="hover:text-blue-200 transition">Home</Link>
-          {/* <Link to="/checkout" className="hover:text-blue-200 transition">Checkout</Link> */}
-          <CartWidget />
+{/*           <Link to="/checkout" className="hover:text-blue-200 transition">Checkout</Link>
+ */}          <CartWidget />
         </nav>
       </div>
-      <CartPanel />
     </header>
   );
 }

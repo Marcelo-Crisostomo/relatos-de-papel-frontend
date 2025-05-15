@@ -1,7 +1,7 @@
 // src/components/BookCard.jsx
 import React from 'react';
 import { useCart } from '../context/CartContext';
-
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
 /*
 function BookCard({ book }) {
@@ -23,6 +23,11 @@ export default BookCard;*/
 function BookCard({ book }) {
   const { addToCart } = useCart();
 
+  const handleAddToCart = () => {
+    addToCart(book);
+    toast.success(`"${book.title}" fue agregado al carrito 🛒`);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition hover:shadow-lg hover:scale-[1.02]">
       <Link to={`/book/${book.id}`}>
@@ -39,7 +44,7 @@ function BookCard({ book }) {
           <p className="mt-2 text-xl font-bold text-gray-900">${book.price}</p>
         </div>
         <button
-          onClick={() => addToCart(book)}
+          onClick={handleAddToCart}
           className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
         >
           Agregar al carrito
@@ -50,4 +55,3 @@ function BookCard({ book }) {
 }
 
 export default BookCard;
-
