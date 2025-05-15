@@ -71,8 +71,27 @@ function Cart() {
       <h1 className="text-3xl font-bold mb-6 text-blue-800">Carrito de compras</h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-gray-600">Tu carrito está vacío.</p>
-      ) : (
+        <div className="text-center py-10 flex flex-col items-center justify-center text-gray-600">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            className="w-20 h-20 mb-4 text-blue-300"
+            fill="currentColor"
+            >
+            <path d="M20 54a4 4 0 100 8 4 4 0 000-8zm24 0a4 4 0 100 8 4 4 0 000-8zM9 4a1 1 0 000 2h4.15l4.84 30.62a5 5 0 004.94 4.38h26.72a5 5 0 004.95-4.14l3.67-20A1 1 0 0061 16H16.42l-.63-4H55a1 1 0 000-2H14.72a1 1 0 00-.98.8l-.67 4a1 1 0 00.01.2L15.1 16h.02l.52 3.22L19 44.38a7 7 0 006.91 6.12H53a1 1 0 000-2H25.91a5 5 0 01-4.94-4.38l-4.84-30.6A1 1 0 0015 14H9z" />
+            </svg>
+            <p className="text-md font-medium">Tu carrito está vacío</p>
+            <p className="text-sm text-gray-400 mt-1 mb-4">
+            Cuando agregues libros, los verás aquí
+            </p>
+            <a
+            href="/home"
+            className="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+            Ir al catálogo
+            </a>
+        </div>
+        ) : (
         <div className="space-y-6">
           {cartItems.map((item) => (
             <CartItem

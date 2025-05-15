@@ -82,6 +82,7 @@ function CheckoutForm({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
+    localStorage.setItem("lastOrder", JSON.stringify(formData)); // Guarda pedido simulado
   };
 
   return (
