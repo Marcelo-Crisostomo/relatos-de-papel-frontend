@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate  } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import CartItem from '../components/CartItem';
@@ -7,7 +7,9 @@ import Swal from 'sweetalert2';
 function Cart() {
   const { cartItems, removeFromCart, clearCart, updateQuantity } = useCart();
   const navigate = useNavigate();
-
+  useEffect(() => {
+    console.log('🛒 Carrito actualizado:', cartItems);
+  }, [cartItems]);
   const increaseQuantity = (id) => {
     const item = cartItems.find((i) => i.id === id);
     if (item) {
@@ -23,22 +25,22 @@ function Cart() {
   };
 
   const handleRemoveItem = (id) => {
-    Swal.fire({
-      title: '¿Eliminar libro?',
-      text: '¿Deseas quitar este libro del carrito?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar',
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        removeFromCart(id);
-        Swal.fire('Eliminado', 'El libro fue quitado del carrito.', 'success');
-      }
-    });
-  };
+  Swal.fire({
+    title: '¿Eliminar libro?',
+    text: '¿Deseas quitar este libro del carrito?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar',
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      removeFromCart(Number(id)); // ✅ Desde el contexto
+      Swal.fire('Eliminado', 'El libro fue quitado del carrito.', 'success');
+    }
+  });
+};
 
   const handleClearCart = () => {
     Swal.fire({

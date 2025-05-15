@@ -73,7 +73,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
           ${(item.price * item.quantity).toFixed(2)}
         </p>
         <button
-          onClick={handleRemove}
+          onClick={() => onRemove(item.id)}
           title="Eliminar libro"
           className="text-red-500 hover:text-red-700 transition"
         >
