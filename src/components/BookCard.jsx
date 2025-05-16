@@ -16,4 +16,3 @@ function BookCard({ book }) {
 }
 
 export default BookCard;
-
