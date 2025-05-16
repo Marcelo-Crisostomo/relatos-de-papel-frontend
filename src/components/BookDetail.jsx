@@ -1,7 +1,7 @@
 // src/pages/BookDetail.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { booksData } from '../data/books';  // Suponiendo que tienes un archivo de datos
+import { booksData } from '../data/books';  
 
 function BookDetail() {
   const { id } = useParams();
@@ -28,3 +28,4 @@ function BookDetail() {
 }
 
 export default BookDetail;
+
